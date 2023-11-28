@@ -25,18 +25,21 @@ function PokemonDetails() {
               <span key={t}> {t} </span>
             ))}
           </div>
+          <div>
+          {
+       pokemon.types &&  pokemon.similarPokemons && 
+       <div>
+        <h3>More {pokemon.types[0]} type Pokemons</h3>
+        <div className="more-type">
+           {pokemon.similarPokemons.map((p)=> <button key={p.pokemon.id}>{p.pokemon.name}</button>)}
+        </div>
+       </div>
+      }
+          </div>
         </div>
       </div>
 
-      {
-       pokemon.types &&  pokemon.similarPokemons && 
-       <div>
-        more {pokemon.types[0]} type Pokemons
-        <ul>
-           {pokemon.similarPokemons.map((p)=> <li key={p.pokemon.id}>{p.pokemon.name}</li>)}
-        </ul>
-       </div>
-      }
+     
     </>
   );
 }
